@@ -5,6 +5,9 @@ on:
   push:
     branches: [ "main" ]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -13,11 +16,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Apply build hotfixes
+      - name: Apply source build fixes
         shell: bash
         run: |
           sed -i 's/import android.app.PrintManager/import android.print.PrintManager/' app/src/main/java/jp/mushamusha/aibrowser/MainActivity.kt
           sed -i 's/continuation.resumeWith(Result.failure(e))/continuation.resumeWith(kotlin.Result.failure(e))/' app/src/main/java/jp/mushamusha/aibrowser/WatchWorker.kt
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add app/src/main/java/jp/mushamusha/aibrowser/MainActivity.kt app/src/main/java/jp/mushamusha/aibrowser/WatchWorker.kt
+            git commit -m "Fix Android source compile errors"
+            git push origin HEAD:main
+          fi
 
       - name: Set up Java
         uses: actions/setup-java@v4
