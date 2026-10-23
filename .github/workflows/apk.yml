@@ -2,6 +2,8 @@ name: Build APK
 
 on:
   workflow_dispatch:
+  push:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -10,6 +12,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Apply build hotfixes
+        shell: bash
+        run: |
+          sed -i 's/import android.app.PrintManager/import android.print.PrintManager/' app/src/main/java/jp/mushamusha/aibrowser/MainActivity.kt
+          sed -i 's/continuation.resumeWith(Result.failure(e))/continuation.resumeWith(kotlin.Result.failure(e))/' app/src/main/java/jp/mushamusha/aibrowser/WatchWorker.kt
 
       - name: Set up Java
         uses: actions/setup-java@v4
