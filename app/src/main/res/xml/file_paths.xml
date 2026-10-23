@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <cache-path name="upload_capture" path="upload_capture/" />
+    <cache-path name="upload_capture_incognito" path="upload_capture_incognito/" />
+</paths>

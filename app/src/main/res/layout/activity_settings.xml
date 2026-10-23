@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AI / DeepSeek"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="APIキーはWebページへ渡さず、Android Keystoreで暗号化して保存します。AI通信の接続先は api.deepseek.com 固定です。" />
+
+        <EditText
+            android:id="@+id/apiKeyInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="DeepSeek APIキー（変更する時だけ入力）"
+            android:inputType="textPassword"
+            android:importantForAutofill="no"
+            android:saveEnabled="false"
+            android:imeOptions="flagNoPersonalizedLearning" />
+
+        <TextView
+            android:id="@+id/keyStatusView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="APIキー: 未登録" />
+
+        <Button
+            android:id="@+id/deleteKeyButton"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:minHeight="0dp"
+            android:text="保存済みAPIキーを削除" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="モデル" android:layout_marginTop="12dp" />
+        <Spinner android:id="@+id/modelSpinner" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="思考強度" android:layout_marginTop="10dp" />
+        <Spinner android:id="@+id/reasoningSpinner" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/maxTokensInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="最大出力トークン（最大65536）"
+            android:inputType="number" />
+
+        <CheckBox
+            android:id="@+id/secureAiCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AI結果や機密画面のスクリーンショットを禁止" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ブラウザ"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
+
+        <EditText
+            android:id="@+id/homePageInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="ホームページURL"
+            android:inputType="textUri" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="検索エンジン" />
+        <Spinner android:id="@+id/searchSpinner" android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+        <CheckBox android:id="@+id/javascriptCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="JavaScriptを許可" />
+        <CheckBox android:id="@+id/thirdPartyCookiesCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="サードパーティCookieを許可" />
+        <CheckBox android:id="@+id/trackerBlockCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="簡易トラッカー/広告ドメインをブロック" />
+        <CheckBox android:id="@+id/httpsOnlyCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="HTTPS優先モード（HTTPのメインページ遷移をHTTPSへ変更）" />
+        <CheckBox android:id="@+id/desktopDefaultCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="新しいタブをPC表示で開く" />
+        <CheckBox android:id="@+id/saveHistoryCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="履歴を保存" />
+        <CheckBox android:id="@+id/blockPopupsCheck" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="ポップアップをブロック" />
+
+        <Button android:id="@+id/saveButton" android:layout_width="match_parent" android:layout_height="44dp" android:minHeight="0dp" android:layout_marginTop="16dp" android:text="設定を保存" />
+        <Button android:id="@+id/testApiButton" android:layout_width="match_parent" android:layout_height="44dp" android:minHeight="0dp" android:text="DeepSeek接続テスト" />
+    </LinearLayout>
+</ScrollView>
