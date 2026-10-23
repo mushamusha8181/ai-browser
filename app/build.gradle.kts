@@ -15,6 +15,11 @@ android {
         versionName = "1.3.2"
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     buildFeatures {
         viewBinding = true
         buildConfig = true
@@ -29,6 +34,12 @@ android {
 
     packaging {
         resources.excludes += setOf("META-INF/AL2.0", "META-INF/LGPL2.1")
+    }
+}
+
+kotlin {
+    compilerOptions {
+        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 
