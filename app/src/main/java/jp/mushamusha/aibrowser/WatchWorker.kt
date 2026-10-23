@@ -92,7 +92,7 @@ class WatchWorker(appContext: Context, params: WorkerParameters) : CoroutineWork
         call.enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 if (!continuation.isActive) return
-                continuation.resumeWith(Result.failure(e))
+                continuation.resumeWith(kotlin.Result.failure(e))
             }
 
             override fun onResponse(call: Call, response: Response) {

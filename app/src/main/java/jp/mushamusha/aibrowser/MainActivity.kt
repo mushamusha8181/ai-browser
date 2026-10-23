@@ -3,7 +3,7 @@ package jp.mushamusha.aibrowser
 import android.Manifest
 import android.app.Activity
 import android.app.DownloadManager
-import android.app.PrintManager
+import android.print.PrintManager
 import android.content.ClipData
 import android.content.ComponentCallbacks2
 import android.content.ContentValues
